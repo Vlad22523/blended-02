@@ -1,4 +1,4 @@
-import { Form, Text } from 'components';
+import { Form, Text, TodoList } from 'components';
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
 
@@ -9,10 +9,14 @@ export const Todos = () => {
   };
 
   console.log(todos);
+
   return (
     <>
-      <Text textAlign="center">There are no any todos ...</Text>
+      {todos.length === 0 && (
+        <Text textAlign="center">There are no any todos ...</Text>
+      )}
       <Form onSubmit={handleSubmit} />
+      <TodoList todos={todos} />
     </>
   );
 };
